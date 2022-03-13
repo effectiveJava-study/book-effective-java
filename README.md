@@ -16,7 +16,7 @@
 | 장 | 발표자료
 :---: | :---:
 [2장. 객체 생성과 파괴](https://github.com/effectiveJava-study/book-effective-java/issues/9)| [이름1] / [이름] 
-[3장. 모든 객체의 공통 메서드] | [이름1] / [이름] 
+[3장. 모든 객체의 공통 메서드](https://github.com/effectiveJava-study/book-effective-java/issues/10) | [이름1] / [이름] 
 [4장. 클래스와 인터페이스] | [이름1] / [이름] 
 [5장. 제네릭] |[이름1] / [이름] 
 [6장. 열거 타입과 애너테이션] | [이름1] / [이름] 
