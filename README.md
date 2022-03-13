@@ -20,11 +20,11 @@
 [4장. 클래스와 인터페이스] | [이름1] / [이름] 
 [5장. 제네릭] |[이름1] / [이름] 
 [6장. 열거 타입과 애너테이션] | [이름1] / [이름] 
-[7장. 람다와 스트림] | [이름1] / [이름] 
-[8장. 메서드] |  [이름1] / [이름] 
-[9장. 일반적인 프로그래밍 원칙] | [이름1] / [이름] 
-[10장. 예외] | [이름1] / [이름] 
-[11장. 동시성] | [이름1] / [이름] 
-[12장. 직렬화] | [이름1] / [이름] 
+[7장. 람다와 스트림](https://github.com/effectiveJava-study/book-effective-java/issues/3) | [이름1] / [이름] 
+[8장. 메서드](https://github.com/effectiveJava-study/book-effective-java/issues/4) |  [이름1] / [이름] 
+[9장. 일반적인 프로그래밍 원칙](https://github.com/effectiveJava-study/book-effective-java/issues/5) | [이름1] / [이름] 
+[10장. 예외](https://github.com/effectiveJava-study/book-effective-java/issues/6) | [이름1] / [이름] 
+[11장. 동시성](https://github.com/effectiveJava-study/book-effective-java/issues/7) | [이름1] / [이름] 
+[12장. 직렬화](https://github.com/effectiveJava-study/book-effective-java/issues/8) | [이름1] / [이름] 
 
 
