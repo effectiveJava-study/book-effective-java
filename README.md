@@ -3,6 +3,8 @@
 
 
 ## 참고 링크
+
+- [이펙티브 자바 운영방안](https://erratic-firefly-d67.notion.site/dcbf8220cb9d48b19eb3a7ec12fb4bba)
 - [책 정보 링크](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=171196410)
 - [이펙티브자바 공식 Github](https://github.com/WegraLee/effective-java-3e-source-code)
 - [이펙티브자바 3판 번역 용어 설명](https://docs.google.com/document/d/1Nw-_FJKre9x7Uy6DZ0NuAFyYUCjBPCpINxqrP0JFuXk/edit)
