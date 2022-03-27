@@ -92,7 +92,6 @@ public interface SingerSongwriter extends Singer, Songwriter {
 ex. AbstractCollection, AbstractSet, AbstractList, AbstractMap ...<br>
 
 
-
 #### 골격 구현을 사용해 완성한 구체 클래스
 <pre>
 <code>
@@ -122,9 +121,8 @@ public class AbstractSkeletalConcreteClass {
         };
     }
 }
-
-</code>
 </pre>
+</code>
 
 - 골격 구현 클래스는 추상 클래스처럼 구현을 도와주는 동시에,<br>
 추상 클래스로 타입을 정의할 때 따라오는 심각한 제약에서는 자유롭다.
@@ -139,14 +137,62 @@ public class AbstractSkeletalConcreteClass {
 다중 상속의 많은 장점을 제공하면서 단점은 피하게 해준다.
 
 
+<pre>
+<code>
+public abstract class AbstractMapEntry<K, V> implements Map.Entry<K, V> {
+
+    // 변경 가능한 엔트리는 이 메서드를 반드시 재정의해야 한다.
+    @Override
+    public V setValue(V value) {
+        throw new UnsupportedOperationException();
+    }
+
+    // Map.Entry.equals의 일반 규약을 구현한다.
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Map.Entry)) {
+            return false;
+        }
+        Map.Entry<?, ?> e = (Map.Entry) obj;
+        return Objects.equals(e.getKey(), getKey()) && Objects.equals(e.getValue(), getValue());
+    }
+
+    // Map.Entry.hashCode의 일반 규약을 구현한다.
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getKey()) ^ Objects.hashCode(getValue());
+    }
+
+    @Override
+    public String toString() {
+        return getKey() + "=" + getValue();
+    }
+}
+
+</pre>
+</code>
 
 
 
 
+- Map.Entry 인터페이스나 그 하위 인터페이스로는 이 골격 구현을 제공할 수 없다.<br>
+디폴트 메서드는 equals, hashCode, toString 같은 Object 메서드를 재정의할 수 없기 때문이다.<br>
+- 골격 구현은 기본적으로 상속해서 사용하는 걸 가정한다. 따라서 설계 및 문서화 지침을 모두 따라야 한다.<br>
+- 인터페이스에 정의한 디폴트 메서드든 별도의 추상 클래스든, 골격 구현은 반드시 그 동작 방식을 잘 정리해 문서로 남겨야 한다.
 
 
 
 
+### 단순 구현(simple implementation)
+#### 단순 구현(simple implementation)은 골격 구현의 작은 변종으로, AbstractMap.SimpleEntry가 좋은 예다.
+- 단순 구현도 골격 구현과 같이 상속을 위해 인터페이스를 구현한 것이지만, 추상 클래스가 아니란 점이 다르다.
+- 쉽게 말하면, 동작하는 가장 단순한 구현이다. 이러한 단순 구현은 그대로 써도 되고 필요에 맞게 확장해도 된다.
+
+
+## 핵심 정리
 
 
 
