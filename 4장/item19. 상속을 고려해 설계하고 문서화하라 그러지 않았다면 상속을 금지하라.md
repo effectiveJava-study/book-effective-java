@@ -39,6 +39,35 @@
 >
 * 이 때 재정의한 메서드가 하위 클래스의 생성자에서 초기화하는 값에 의존한다면 의도대로 동작하지 않을 것이다.
 
+```
+public class Super {
+    public Super() {
+        overrideMe(); // 생성자가 재정의 가능한 메서드를 호출한다.
+    }
+    public void overrideMe() {
+    }
+}
+public final class Sub extends Super {
+    private final Instacnce instacnce;
+    Sub() {
+        instacnce = Instacnce.now(); // create instance in constructor
+    }
+    @Override
+    public void overrideMe() {
+        System.out.println(instacnce);
+    }
+    public static void main(String[] args) {
+        Sub sub = new Sub();
+        /*
+         * instance 가 null / instance 두 개 출력 된다
+         * 상위 클래스의 생성자는 하위 클래스의 생성자가 인스턴스 필드를 초기화하기 전에 overrideMe 호출
+         * */
+        sub.overrideMe();
+    }
+}
+
+```
+
 ---
 
 #### 5. clone과 readObject 모두 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 된다.
@@ -47,6 +76,41 @@
 - readObject의 경우 하위 클래스의 상태가 미처 다 역직렬화되기 전에 재정의한 메서드부터 호출하게 된다. 
 - clone의 경우 하위 클래스의 clone 메서드가 복제본의 상태를 (올바른 상태로) 수정하기 전에 재정의한 메서드를 호출한다.
 - clone이 잘못되어 깊은 복사를 하다가 원본 객체의 일부를 참조하고 있다면 원본 객체에까지도 피해를 줄 수 있다.
+
+
+```
+public class Super implements Cloneable{
+    String type;
+    public Super() {
+        this.type = "super";
+    }
+    public void overrideMe() {
+        System.out.println("super method");
+    }
+    @Override
+    public Super clone() throws CloneNotSupportedException {
+        overrideMe();
+        return (Super) super.clone();
+    }
+}
+public class Sub extends Super{
+  String value;
+  @Override
+  public void overrideMe() {
+    System.out.println("sub mehtod");
+    System.out.println(value);  // 테스트 시 이 부분에 null 이 출력 됨
+    type = "sub";
+  }
+  @Override
+  public Sub clone() throws CloneNotSupportedException {
+    Sub clone = (Sub) super.clone();
+    clone.value = "temp";
+    return clone;
+  }
+}
+```
+
+
 
 ---
 
