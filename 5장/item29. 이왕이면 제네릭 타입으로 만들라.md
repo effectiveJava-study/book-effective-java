@@ -128,12 +128,12 @@ Stack에서 꺼낸 원소에서 String의 toUpperCase 메서드를 호출할 때
 (컴파일러에 의해 자동 생성된) 이 형변환이 항상 성공함을 보장. <br>
 
 ---
-- DelayQueue (타입 매개변수에 제약을 두는 제네릭 타입)
-https://runebook.dev/ko/docs/openjdk/java.base/java/util/concurrent/delayqueue
-- ClassCastException
-https://shs2810.tistory.com/15
+- DelayQueue (타입 매개변수에 제약을 두는 제네릭 타입) <br>
+https://runebook.dev/ko/docs/openjdk/java.base/java/util/concurrent/delayqueue <br>
+- ClassCastException <br>
+https://shs2810.tistory.com/15 <br>
 ---
->**핵심정리**
+>**핵심정리** <br>
 클라이언트에서 직접 형변환해야 하는 타입보다 제네릭 타입이 더 안전하고 쓰기 편하다. 그러니 새로운 타입을 설계할 때는 형변환 없이도 사용할 수 있도록 하라. <br>
 그렇게 하려면 제네릭 타입으로 만들어야 할 경우가 많다. <br>
 기존 타입 중 제네릭이었어야 하는 게 있다면 제네릭 타입으로 변경하자. <br>
