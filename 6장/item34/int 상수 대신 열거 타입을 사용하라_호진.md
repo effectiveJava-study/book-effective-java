@@ -155,6 +155,27 @@ public enum AdvancedOperation {
 }
 ```
 
+
+```
+private static final Map<String, Operation> stringToEnum =
+	Stream.of(values()).collect(Collectors.toMap(Object::toString, e -> e));
+```
+풀면 아래와 같다.
+```
+private static final Map<String, Operation> stringToEnum =
+    Stream.of(values()).collect(Collectors.toMap(new Function<Operation, String>() {
+        @Override
+        public String apply(Operation o) {
+            return o.toString();
+        }
+    }, new Function<Operation, Operation>() {
+        @Override
+        public Operation apply(Operation o) {
+            return o;
+        }
+    }));
+```
+
 값에 따라 분기하며 코드를 공유하는 열거 타입
 ```
 public enum PayrollDay {
